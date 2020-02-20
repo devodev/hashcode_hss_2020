@@ -11,10 +11,18 @@ import (
 func toNumbers(s []string) []int {
 	result := []int{}
 	for _, v := range s {
-		n, err := strconv.Atoi(v)
-		if err == nil {
+		if n, err := strconv.Atoi(v); err == nil {
 			result = append(result, n)
 		}
+	}
+	return result
+}
+
+func toStrings(s []int) []string {
+	result := []string{}
+	for _, v := range s {
+		n := strconv.Itoa(v)
+		result = append(result, n)
 	}
 	return result
 }
@@ -29,12 +37,10 @@ func main() {
 
 	M, N := input1[0], input1[1]
 
-	fmt.Println(M, N)
-	fmt.Println(input2)
 	result := Solve(M, N, input2)
 
 	Reverse(result)
 
 	fmt.Println(len(result))
-	fmt.Println(result)
+	fmt.Println(strings.Join(toStrings(result), " "))
 }
