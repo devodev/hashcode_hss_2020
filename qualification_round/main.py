@@ -27,11 +27,12 @@ class Manager:
 
     def __repr__(self):
         return '\n'.join((
+            '',
             'total_book_count: {}'.format(self.total_book_count),
             'lib_count: {}'.format(self.lib_count),
             'day_count: {}'.format(self.day_count),
             'book_scores: {}'.format(self.book_scores),
-            '[libraries]\n---------------',
+            '\n[libraries]\n---------------',
             *map('{}\n---------------'.format, self.libraries),
         ))
 
